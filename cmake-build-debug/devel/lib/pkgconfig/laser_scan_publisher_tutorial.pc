@@ -1,0 +1,8 @@
+prefix=/home/kilox/catkin_ws_planning/src/navigation_tutorials/cmake-build-debug/devel
+
+Name: laser_scan_publisher_tutorial
+Description: Description of laser_scan_publisher_tutorial
+Version: 0.2.3
+Cflags: 
+Libs: -L/home/kilox/catkin_ws_planning/src/navigation_tutorials/cmake-build-debug/devel/lib 
+Requires: 

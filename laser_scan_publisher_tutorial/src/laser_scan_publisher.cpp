@@ -37,7 +37,7 @@
 #include <ros/ros.h>
 #include <sensor_msgs/LaserScan.h>
 
-int main(int argc, char** argv){
+int main(int argc, char **argv) {
   ros::init(argc, argv, "laser_scan_publisher");
 
   ros::NodeHandle n;
@@ -48,17 +48,17 @@ int main(int argc, char** argv){
   double ranges[num_readings];
   double intensities[num_readings];
 
-  int count = 0;
+  //  int count = 0;
   ros::Rate r(1.0);
-  while(n.ok()){
-    //generate some fake data for our laser scan
-    for(unsigned int i = 0; i < num_readings; ++i){
-      ranges[i] = count;
-      intensities[i] = 100 + count;
+  while (n.ok()) {
+    // generate some fake data for our laser scan
+    for (unsigned int i = 0; i < num_readings; ++i) {
+      ranges[i] = 3;
+      intensities[i] = 100 + 3;
     }
     ros::Time scan_time = ros::Time::now();
 
-    //populate the LaserScan message
+    // populate the LaserScan message
     sensor_msgs::LaserScan scan;
     scan.header.stamp = scan_time;
     scan.header.frame_id = "laser_frame";
@@ -71,13 +71,13 @@ int main(int argc, char** argv){
 
     scan.ranges.resize(num_readings);
     scan.intensities.resize(num_readings);
-    for(unsigned int i = 0; i < num_readings; ++i){
+    for (unsigned int i = 0; i < num_readings; ++i) {
       scan.ranges[i] = ranges[i];
       scan.intensities[i] = intensities[i];
     }
 
     scan_pub.publish(scan);
-    ++count;
+    //++count;
     r.sleep();
   }
 }
